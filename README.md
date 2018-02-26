@@ -1,20 +1,20 @@
 
-#Cucumber Test Automation Framework using Java and Selenium
+# Cucumber Test Automation Framework using Java and Selenium
 **************************************************************************************
 # What makes the cucumber Test automation Framework a robust one?
 ## Cucumber Test automation Framework can be a robust one when framework is developed by applying the below steps
-###•	Page Object Design Pattern with Selenium PageFactory in Cucumber
-###•	Page Objects Manager
-###•	Read Configurations from Property File
-###•	File Reader Manager
-###•	Web Driver Manager
-###•	Use of Data Driven Testing in Cucumber
-###•	Use of Hooks
-###•	Use of Tags
-###•	State context sharing between different step definition files and different scenarios
-###•	Organizing the pre-requisites 
-###•	Developing as a Maven Project
-###•	Advanced Reports Generation
+### •	Page Object Design Pattern with Selenium PageFactory in Cucumber
+### •	Page Objects Manager
+### •	Read Configurations from Property File
+### •	File Reader Manager
+### •	Web Driver Manager
+### •	Use of Data Driven Testing in Cucumber
+### •	Use of Hooks
+### •	Use of Tags
+### •	State context sharing between different step definition files and different scenarios
+### •	Organizing the pre-requisites 
+### •	Developing as a Maven Project
+### •	Advanced Reports Generation
 ************************************************************************************************************************
 # I. Page Object Design Pattern with Selenium PageFactory in Cucumber
 The main advantage of Page Object Model is that if the UI or any HTML object changes for any page, the test does not need any fix. Only the code within the page objects will be impacted but it does not have any impact to the test.

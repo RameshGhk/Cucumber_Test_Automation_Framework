@@ -1,0 +1,115 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 16,
+        "name": "Product Search and add to shopping cart",
+        "description": "",
+        "id": "end-to-end-functional-test;product-search-and-add-to-shopping-cart;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 7268786576,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user is on Home Page",
+            "match": {
+              "location": "Steps.userIsOnHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5289985527,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "he search for \"Head first java\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Head first java",
+                  "offset": 15
+                }
+              ],
+              "location": "Steps.heSearchFor(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3334660552,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "choose to buy the first item",
+            "match": {
+              "location": "Steps.chooseToBuyTheFirstItem()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1198559317,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Add product to shopping cart",
+            "match": {
+              "location": "Steps.addsProductToShoppingCart()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 950093610,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User clicks on shopping cart",
+            "match": {
+              "location": "Steps.userClicksOnShoppingCart()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1046979880,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Cliks on proceed to check out",
+            "match": {
+              "location": "Steps.userClicksOnProceedCheckOut()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8415411555,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "User should be asked to login before checkout",
+            "match": {
+              "location": "Steps.enterPersonalDetailsOnLoginPage()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "End to End Functional Test",
+    "description": "Product search and purchase from amazon.com\r\nUser wants to search for Product and purchase from amazon.com\r\nValidation criteria : User should be logged in to check out the product",
+    "id": "end-to-end-functional-test",
+    "keyword": "Feature",
+    "uri": "End2End_Test.feature"
+  }
+]

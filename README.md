@@ -139,6 +139,7 @@ Also when you out grow your test steps or feature files, Keeping all the steps i
 SO we have to share the Test Context / Scenario Context / Test State with all the Step Definitions file. This is why Cucumber supports several Dependency Injection (DI) Containers – it simply tells a DI container to instantiate your step definition classes and wire them up correctly. One of the supported DI containers is PicoContainer.
 # X. Cucumber framework template looks as below.
 But still lot more refactoring can be done based on the project requirement.
+![framework_template_1](https://user-images.githubusercontent.com/26390297/36727180-9aa163e4-1bbc-11e8-9e00-90ddb3daf199.PNG)
 # XI. Reports
 ### Console Output which is more readable
 ![console](https://user-images.githubusercontent.com/26390297/36722875-082382de-1baf-11e8-8fa0-87852916fe89.jpg)

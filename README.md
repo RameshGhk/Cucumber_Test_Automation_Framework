@@ -1,6 +1,9 @@
+# Introduction
+## Consider the following user story:
+As a client I want to search for a product and add to the shopping cart of www.Amazon.com. 
+And User should be asked to login when user proceeds to check out the product from shopping cart.
 
-# Cucumber Test Automation Framework using Java and Selenium
-**************************************************************************************
+Based on the above user story, to automate the end to end testing, Cucumber test automation framework is developed using java and selenium
 # What makes the cucumber Test automation Framework a robust one?
 ## Cucumber Test automation Framework can be a robust one when framework is developed by applying the below steps
 ### •	Page Object Design Pattern with Selenium PageFactory in Cucumber
@@ -15,44 +18,32 @@
 ### •	Organizing the pre-requisites 
 ### •	Developing as a Maven Project
 ### •	Advanced Reports Generation
-************************************************************************************************************************
+
 # I. Page Object Design Pattern with Selenium PageFactory in Cucumber
-The main advantage of Page Object Model is that if the UI or any HTML object changes for any page, the test does not need any fix. Only the code within the page objects will be impacted but it does not have any impact to the test.    
-Page Object Design Pattern  
-Can you image the line of the code in project where you will deal with 100+ tests and that will have multiple stepDefiniions files? The whole project code will become unmanageable and unmaintainable. To better manage the code and to improve the re-usability, this pattern suggests us to divide an application in different pages or a single page in to sub-pages.   
-The Page Object Pattern technique provides a solution for working with multiple web pages and prevents unwanted code duplication and enables an uncomplicated solution for code maintenance. In general, every page in our application will be represented by a unique class of its own and the page element inspection will be implemented in every class.  
+The main advantage of Page Object Model is that if the UI or any HTML object changes for any page, the test does not need any fix. Only the code within the page objects will be impacted but it does not have any impact to the test.    
+Page Object Design Pattern  
+Can you image the line of the code in project where you will deal with 100+ tests and that will have multiple stepDefiniions files? The whole project code will become unmanageable and unmaintainable. To better manage the code and to improve the re-usability, this pattern suggests us to divide an application in different pages or a single page in to sub-pages.   
+The Page Object Pattern technique provides a solution for working with multiple web pages and prevents unwanted code duplication and enables an uncomplicated solution for code maintenance. In general, every page in our application will be represented by a unique class of its own and the page element inspection will be implemented in every class.  
  Selenium PageFactory: Page Factory is an inbuilt Page Object Model concept for Selenium WebDriver and it is more optimized.
-PageFactory is used to Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘. Annotations can be used to supply descriptive names of target objects to improve code readability.  
+PageFactory is used to Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘. Annotations can be used to supply descriptive names of target objects to improve code readability.  
 @FindBy Annotation  
 As the name suggest, it helps to find the elements in the page using By strategy. @FindBy can accept TagName, PartialLinkText, Name, LinkText, Id, Css, ClassName, XPath as attributes. An alternative mechanism for locating the element or a list of elements. This allows users to quickly and easily create PageObjects.  
 @FindBy(how = How.CSS, using = “.username“)]  
 private WebElement userName;  
-The above code will create a PageObject and name it as UserName by finding it using its CSS locator.
-InitElements  
+The above code will create a PageObject and name it as UserName by finding it using its CSS locator.  
+
+InitElements   
 This Instantiate an Instance of the given class. This method will attempt to instantiate the class given to it, preferably using a constructor which takes a WebDriver instance as its only argument or falling back on a no-arg constructor. An exception will be thrown if the class cannot be instantiated.  
 PageFactory.initElements(WebDriver, PageObject.Class);  
 Parameters:
 #### •	WebDriver – The driver that will be used to look up the elements
 #### •	PageObjects – A class which will be initialized
-Returns: An instantiated instance of the class with WebElement and List<WebElement> fields proxied
-PageFactory NameSpace  
-PageFactory functionality resides in import org.openqa.selenium.support.PageFactory;
  
 # II. Page Object Manager
 In the case of multiple step definition files, we will be creating object of Pages again and again. Which is against the coding principle.
-To avoid this situation, we can create a Page Object Manager. Purpose of the Page Object Manager is to create the page’s object and also to make sure that the same object should not be created again and again. But to use single object for all the step definition files.
-Constructor  
-public PageObjectManager(WebDriver driver) {
-     this.driver = driver;
-}  
-This constructor is asking for parameter of type WebDriver. As to create an object of the Pages, this class requires a driver. Now who so ever will create the object of this class needs to provide the driver like :
-PageObjectManager pageObjectManager = new PageObjectManager(driver);
- 
-Page Object Creation Method  
-public HomePage getHomePage() {
-     return (homePage == null) ? new HomePage(driver) : homePage;
-}  
-This method has two responsibilities:  
+To avoid this situation, we can create a Page Object Manager. Purpose of the Page Object Manager is to create the page’s object and also to make sure that the same object should not be created again and again. But to use single object for all the step definition files.   
+  
+The main responsibilities are:  
 #### 1.	To create an Object of Page Class only if the object is null.
 #### 2.	To supply the already created object if it is not null 
 
@@ -146,8 +137,9 @@ This is so interesting to see the working of Background with Hooks. The backgrou
 A scenario in Cucumber is a series of steps which gets executed one after one. Each step in scenario may have some state which can be required by other step in the scenario. In other way you can also say that each step depends on previous steps. This means that we must be able to share state between steps.  
 Also when you out grow your test steps or feature files, Keeping all the steps in a single Step Definition class quickly becomes impractical, so you use many classes. Now you have a new problem – objects you create in one step class will be needed in the other step classes as well.  
 SO we have to share the Test Context / Scenario Context / Test State with all the Step Definitions file. This is why Cucumber supports several Dependency Injection (DI) Containers – it simply tells a DI container to instantiate your step definition classes and wire them up correctly. One of the supported DI containers is PicoContainer.
-
-X. # Reports
+# X. Cucumber framework template looks as below.
+But still lot more refactoring can be done based on the project requirement.
+# XI. Reports
 ### Console Output which is more readable
 ![console](https://user-images.githubusercontent.com/26390297/36722875-082382de-1baf-11e8-8fa0-87852916fe89.jpg)
 ### HTML Report which gives clear details on each and every step of scenario

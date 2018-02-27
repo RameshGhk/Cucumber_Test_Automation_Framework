@@ -33,11 +33,12 @@ InitElements
 This Instantiate an Instance of the given class. This method will attempt to instantiate the class given to it, preferably using a constructor which takes a WebDriver instance as its only argument or falling back on a no-arg constructor. An exception will be thrown if the class cannot be instantiated.
 PageFactory.initElements(WebDriver, PageObject.Class);
 Parameters:
-•	WebDriver – The driver that will be used to look up the elements
-•	PageObjects – A class which will be initialized
+#### •	WebDriver – The driver that will be used to look up the elements
+#### •	PageObjects – A class which will be initialized
 Returns: An instantiated instance of the class with WebElement and List<WebElement> fields proxied
 PageFactory NameSpace
 PageFactory functionality resides in import org.openqa.selenium.support.PageFactory;
+ 
 # II. Page Object Manager
 In the case of multiple step definition files, we will be creating object of Pages again and again. Which is against the coding principle.
 To avoid this situation, we can create a Page Object Manager. Purpose of the Page Object Manager is to create the page’s object and also to make sure that the same object should not be created again and again. But to use single object for all the step definition files.
@@ -72,9 +73,9 @@ What is Singleton Design Patter?
 The Singleton’s purpose is to control object creation, limiting the number of objects to only one. Since there is only one Singleton instance, any instance fields of a Singleton will occur only once per class, just like static fields.
 How to implement Singleton Pattern?
 To implement Singleton pattern, we have different approaches but all of them have following common concepts.
-•	Private constructor to restrict instantiation of the class from other classes.
-•	Private static variable of the same class that is the only instance of the class.
-•	Public static method that returns the instance of the class, this is the global access point for outer world to get the instance of the singleton class.
+#### •	Private constructor to restrict instantiation of the class from other classes.
+#### •	Private static variable of the same class that is the only instance of the class.
+#### •	Public static method that returns the instance of the class, this is the global access point for outer world to get the instance of the singleton class.
 
 # V. Design WebDriver Manager
 Why do we need WebDriver Manager or some called it as WebDriver Factory or Browser Factory?
@@ -83,14 +84,14 @@ Till now we have been creating driver with in the Step file and we kind of expli
 Cucumber inherently supports Data Driven Testing using Scenario Outline. There are different ways to use the data insertion with in the Cucumber and outside the Cucumber with external files.
 
 Data Driven Testing in Cucumber
-•	Parameterization without Example Keyword
+#### •	Parameterization without Example Keyword
 Data Driven Testing in Cucumber using Scenario Outline
-•	Parameterization with Example Keyword
-•	Parameterization using Tables
+#### •	Parameterization with Example Keyword
+#### •	Parameterization using Tables
 Data Driven Testing in Cucumber using External Files
-•	Parameterization using Excel Files
-•	Parameterization using Json
-•	Parameterization using XML
+#### •	Parameterization using Excel Files
+#### •	Parameterization using Json
+#### •	Parameterization using XML
 
 Scenario Outline – This is used to run the same scenario for 2 or more different set of test data. E.g. In our scenario, if you want to register another user you can data drive the same scenario twice.
 Examples – All scenario outlines have to be followed with the Examples section. This contains the data that has to be passed on to the scenario.
@@ -103,43 +104,43 @@ What are Hooks in Cucumber?
 Cucumber supports hooks, which are blocks of code that run before or after each scenario. You can define them anywhere in your project or step definition layers, using the methods @Before and @After. Cucumber Hooks allows us to better manage the code workflow and helps us to reduce the code redundancy. We can say that it is an unseen step, which allows us to perform our scenarios or tests.
 Why Cucumber Hooks?
 In the world of testing, you must have encountered the situations where you need to perform the prerequisite steps before testing any test scenario. This prerequisite can be anything from:
-•	Starting a webdriver
-•	Setting up DB connections
-•	Setting up test data
-•	Setting up browser cookies
-•	Navigating to certain page
-•	or anything before the test
-In the same way there are always after steps as well of the tests like:
-•	Killing the webdriver
-•	Closing DB connections
-•	Clearing the test data
-•	Clearing browser cookies
-•	Logging out from the application
-•	Printing reports or logs
-•	Taking screenshots on error
-•	or anything after the test
+#### •	Starting a webdriver
+#### •	Setting up DB connections
+#### •	Setting up test data
+#### •	Setting up browser cookies
+#### •	Navigating to certain page
+#### •	or anything before the test
+### In the same way there are always after steps as well of the tests like:
+#### •	Killing the webdriver
+#### •	Closing DB connections
+#### •	Clearing the test data
+#### •	Clearing browser cookies
+#### •	Logging out from the application
+#### •	Printing reports or logs
+#### •	Taking screenshots on error
+#### •	or anything after the test
 Things to note
-•	An important thing to note about the after hook is that even in case of test fail, after hook will execute for sure.
+#### •	An important thing to note about the after hook is that even in case of test fail, after hook will execute for sure.
 
 # VIII. Use of Tags
 How to run Cucumber Tests in Groups using Cucumber Tags?
 For this, Cucumber has already provided a way to organize your scenario execution by using tags in feature file. We can define each scenario with a useful tag. Later, in the runner file, we can decide which specific tag (and so as the scenario(s)) we want Cucumber to execute. Tag starts with “@”. After “@” you can have any relevant text to define your tag like @SmokeTests just above the scenarios you like to mark. Then to target these tagged scenarios just specify the tags names in the CucumberOptions as tags = {“@SmokeTests”}.
 Tagging not just specifically works with Scenarios, it also works with Features. Means you can also tag your features files. Any tag that exists on a Feature will be inherited by Scenario, Scenario Outline or Examples.
 
-Tagged Hooks in Cucumber
+### Tagged Hooks in Cucumber
 Now we know that if we need to do anything before of after the test, we can use @Before & @After hooks. But this scenario works till the time our prerequisites are same for all the scenarios. For example till the time prerequisite for any test is to start the browser, hooks can solve our purpose. But what if we have different perquisites for different scenarios. And we need to have different hooks for different scenarios.
 Again, Cucumbers has given feature of Tagged Hooks to solve the above situation where we need to perform different tasks before and after scenarios.
 Hooks can be used like @Before(“@TagName”). Create before and after hooks for every scenario.
 Note: We learned that @Before & @After hooks runs before & after every Scenario. But @Before(“@First”) will run only before the first scenario and like wise other tagged hooks. 
 
-Execution Order of Hooks
+### Execution Order of Hooks
 Order hooks to run in a particular sequence is easy to do. As we already know the way to specify hooks in cucumber like putting an annotation just above the scenario. Ordering also works the same way but the only difference is that it required an extra parameter. This extra parameter decides the order of execution of the certain hook.
 For example @Before, and if you want to specify the order it will become @Before(value = 1).
 Same goes with any Tags or Hooks available in Cucumber including Tagged Hooks as well.
 How to set the Order or Priority of Cucumber Hooks?
 The very important thing to note here is:
-•	@Before(order = int) : This runs in increment order, means value 0 would run first and 1 would be after 0.
-•	@After(order = int) : This runs in decrements order, means apposite of @Before. Value 1 would run first and 0 would be after 1.
+#### •	@Before(order = int) : This runs in increment order, means value 0 would run first and 1 would be after 0.
+#### •	@After(order = int) : This runs in decrements order, means apposite of @Before. Value 1 would run first and 0 would be after 1.
 Background in Cucumber
 Background in Cucumber is used to define a step or series of steps which are common to all the tests in the feature file. It allows you to add some context to the scenarios for a feature where it is defined. A Background is much like a scenario containing a number of steps. But it runs before each and every scenario where for a feature in which it is defined.
 Background with Hooks
@@ -151,5 +152,7 @@ Also when you out grow your test steps or feature files, Keeping all the steps i
 SO we have to share the Test Context / Scenario Context / Test State with all the Step Definitions file. This is why Cucumber supports several Dependency Injection (DI) Containers – it simply tells a DI container to instantiate your step definition classes and wire them up correctly. One of the supported DI containers is PicoContainer.
 
 # Reports
+### Console Output which is more readable
 ![console](https://user-images.githubusercontent.com/26390297/36722875-082382de-1baf-11e8-8fa0-87852916fe89.jpg)
+### HTML Report which gives clear details on each and every step of scenario
 ![htmlreport](https://user-images.githubusercontent.com/26390297/36722899-19a06b8a-1baf-11e8-9c59-ba750edde3e8.jpg)

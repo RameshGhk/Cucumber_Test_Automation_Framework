@@ -150,3 +150,4 @@ A scenario in Cucumber is a series of steps which gets executed one after one. E
 Also when you out grow your test steps or feature files, Keeping all the steps in a single Step Definition class quickly becomes impractical, so you use many classes. Now you have a new problem – objects you create in one step class will be needed in the other step classes as well.
 SO we have to share the Test Context / Scenario Context / Test State with all the Step Definitions file. This is why Cucumber supports several Dependency Injection (DI) Containers – it simply tells a DI container to instantiate your step definition classes and wire them up correctly. One of the supported DI containers is PicoContainer.
 
+![Screenshot](screenshot.png)
